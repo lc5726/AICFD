@@ -1,0 +1,13 @@
+/file/set-tui-version "20.2"
+
+/file/read-case results/Airfoil2d_db.cas
+/define/boundary-conditions/set/velocity-inlet inlet () velocity-spec no yes quit 
+/define/boundary-conditions/set/velocity-inlet inlet () direction-0 no 87 quit 
+/define/boundary-conditions/set/velocity-inlet inlet () direction-1 no 3 quit 
+/solve/initialize/initialize-flow 
+/solve/iterate 100
+/file/write-data results/file.dat
+/exit
+
+
+
