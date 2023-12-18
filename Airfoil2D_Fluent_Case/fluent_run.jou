@@ -5,8 +5,7 @@
 /define/boundary-conditions/set/velocity-inlet inlet () direction-0 no 87 quit 
 /define/boundary-conditions/set/velocity-inlet inlet () direction-1 no 3 quit 
 /solve/initialize/initialize-flow 
-/solve/iterate 100
-file/export/ascii data_tot () no x-velocity y-velocity quit yes
+/solve/iterate 1000
 
 /solve/cell-registers/add "airfoil" quit
 /solve/cell-registers/edit "airfoil" type boundary boundary-list airfoil () quit quit
