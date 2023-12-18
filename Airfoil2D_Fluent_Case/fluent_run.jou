@@ -6,7 +6,23 @@
 /define/boundary-conditions/set/velocity-inlet inlet () direction-1 no 3 quit 
 /solve/initialize/initialize-flow 
 /solve/iterate 100
-/file/write-data results/file.dat
+file/export/ascii data_tot () no x-velocity y-velocity quit yes
+
+/solve/cell-registers/add "airfoil" quit
+/solve/cell-registers/edit "airfoil" type boundary boundary-list airfoil () quit quit
+/mesh/modify-zones/ sep-cell-zone-mark fluid-part1 airfoil yes quit
+/file/export/ascii airfoil_bc interior-part1:002 () no x-velocity () yes quit
+
+/solve/cell-registers/add "inlet" quit
+/solve/cell-registers/edit "inlet" type boundary boundary-list inlet () quit quit
+/mesh/modify-zones/ sep-cell-zone-mark fluid-part1 inlet yes quit
+/file/export/ascii inlet_bc interior-part1:017 () no x-velocity () yes quit
+
+/solve/cell-registers/add "outlet" quit
+/solve/cell-registers/edit "outlet" type boundary boundary-list outlet () quit quit
+/mesh/modify-zones/ sep-cell-zone-mark fluid-part1 outlet yes quit
+/file/export/ascii outlet_bc interior-part1:023 () no x-velocity () yes quit
+
 /exit
 
 
