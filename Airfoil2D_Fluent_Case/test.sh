@@ -19,7 +19,3 @@ fluent 2ddp -t30 -g -i fluent_run.jou -scheduler_pe=smp
 rm -rf *.trn*
 rm -rf *cleanup*
 #rm -rf *.log*
-
-
-
-

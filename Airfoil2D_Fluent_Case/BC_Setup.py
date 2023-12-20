@@ -1,10 +1,10 @@
-import numpy as np
+from math import *
 import sys
 mach = float(sys.argv[1])
 AoA = float(sys.argv[2])
-Vmag = mach*np.sqrt(1.4*287.1*300)
-Vx = Vmag*np.cos(AoA)
-Vy = Vmag*np.sin(AoA)
+Vmag = mach*sqrt(1.4*287.1*300)
+Vx = Vmag*cos(AoA/57.1)
+Vy = Vmag*sin(AoA/57.1)
 
 Script = '''/file/set-tui-version "20.2"
 
