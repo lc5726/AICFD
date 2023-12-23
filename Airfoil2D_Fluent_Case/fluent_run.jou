@@ -2,24 +2,24 @@
 
 /file/read-case results/Airfoil2d_db.cas
 /define/boundary-conditions/set/velocity-inlet inlet () velocity-spec no yes quit 
-/define/boundary-conditions/set/velocity-inlet inlet () direction-0 no 69.41 quit 
-/define/boundary-conditions/set/velocity-inlet inlet () direction-1 no 2.43 quit 
+/define/boundary-conditions/set/velocity-inlet inlet () direction-0 no 264.11 quit 
+/define/boundary-conditions/set/velocity-inlet inlet () direction-1 no 86.13 quit 
 /solve/initialize/initialize-flow 
-/solve/iterate 1000
+/solve/iterate 3000
 
 /solve/cell-registers/add "airfoil" quit
 /solve/cell-registers/edit "airfoil" type boundary boundary-list airfoil () quit quit
 /mesh/modify-zones/ sep-cell-zone-mark fluid-part1 airfoil yes quit
-/file/export/ascii airfoil_bc_2.00_0.20 interior-part1:002 () no x-velocity () yes quit
+/file/export/ascii airfoil_bc_18.00_0.80 interior-part1:002 () no x-velocity () yes quit
 
 /solve/cell-registers/add "inlet" quit
 /solve/cell-registers/edit "inlet" type boundary boundary-list inlet () quit quit
 /mesh/modify-zones/ sep-cell-zone-mark fluid-part1 inlet yes quit
-/file/export/ascii inlet_bc_2.00_0.20 interior-part1:017 () no x-velocity () yes quit
+/file/export/ascii inlet_bc_18.00_0.80 interior-part1:017 () no x-velocity () yes quit
 
 /solve/cell-registers/add "outlet" quit
 /solve/cell-registers/edit "outlet" type boundary boundary-list outlet () quit quit
 /mesh/modify-zones/ sep-cell-zone-mark fluid-part1 outlet yes quit
-/file/export/ascii outlet_bc_2.00_0.20 interior-part1:023 () no x-velocity () yes quit
+/file/export/ascii outlet_bc_18.00_0.80 interior-part1:023 () no x-velocity () yes quit
 
 /exit

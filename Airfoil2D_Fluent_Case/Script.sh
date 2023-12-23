@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=my_fluent_job
 #SBATCH --nodes=1
-#SBATCH --ntasks=36
+#SBATCH --ntasks=32
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=30Gb
 #SBATCH --time=30:00:00  # Set the maximum runtime for your job

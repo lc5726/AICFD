@@ -13,7 +13,9 @@ Script = '''/file/set-tui-version "20.2"
 /define/boundary-conditions/set/velocity-inlet inlet () direction-0 no %.2f quit 
 /define/boundary-conditions/set/velocity-inlet inlet () direction-1 no %.2f quit 
 /solve/initialize/initialize-flow 
-/solve/iterate 1000
+/solve/iterate 3000
+/file/export/ascii total_bc_%.2f_%.2f interior-part1:002 () no x-velocity y-velocity () yes quit
+
 
 /solve/cell-registers/add "airfoil" quit
 /solve/cell-registers/edit "airfoil" type boundary boundary-list airfoil () quit quit
@@ -30,7 +32,7 @@ Script = '''/file/set-tui-version "20.2"
 /mesh/modify-zones/ sep-cell-zone-mark fluid-part1 outlet yes quit
 /file/export/ascii outlet_bc_%.2f_%.2f interior-part1:023 () no x-velocity () yes quit
 
-/exit'''%(Vx,Vy,AoA,mach,AoA,mach,AoA,mach)
+/exit'''%(Vx,Vy,AoA,mach,AoA,mach,AoA,mach,AoA,mach)
 
 with open('fluent_run.jou','w') as o:
     o.write(Script)
